@@ -1,15 +1,16 @@
 var data = [];
 
-var m = 0;
+var m = 1;
 var b = 0;
 
 function setup() {
     createCanvas(400, 400);
+    background(51);
 
 }
 
 function gradientDescent() {
-    var learning_rate = 0.05;
+    var learning_rate = 0.1;
     for (var i = 0; i < data.length; i++) {
         var x = data[i].x;
         var y = data[i].y;
@@ -19,6 +20,7 @@ function gradientDescent() {
         b = b + error * learning_rate;
     }
 }
+
 
 function drawLine() {
     var x1 = 0;
@@ -36,12 +38,14 @@ function drawLine() {
     line(x1, y1, x2, y2);
 }
 
+
 function mousePressed() {
     var x = map(mouseX, 0, width, 0, 1);
     var y = map(mouseY, 0, height, 1, 0);
     var point = createVector(x, y);
     data.push(point);
 }
+
 
 function draw() {
     background(51);
@@ -53,9 +57,9 @@ function draw() {
         ellipse(x, y, 8, 8);
     }
 
+
     if (data.length > 1) {
         gradientDescent();
         drawLine();
-        canvas.style('color', 'green');
     }
 }
