@@ -10,7 +10,7 @@ function setup() {
 }
 
 function gradientDescent() {
-    var learning_rate = 0.1;
+    var learning_rate = 0.05;
     for (var i = 0; i < data.length; i++) {
         var x = data[i].x;
         var y = data[i].y;
